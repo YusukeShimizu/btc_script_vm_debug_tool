@@ -8,7 +8,10 @@ tx id: [975ec405ac9dc9fa5ab8009d94d6a1fe31dff8a8127ea90d023104e52754e4d7](https:
 対象のtxのinputは、全て2 of 3のmulti sig  
 各入力がP2SH形式をとっており、そのスクリプトが `220020...` のように始まるため、P2SH-P2WPKHである  
 
-OP CHECKMULTISIGを検証するため、[opcodeCheckMultiSig](./opcodeCheckMultiSig.md) に記載のようにcodeにlogを仕込んでいる
+検証のため、かなり雑だが下記のようにhttps://github.com/YusukeShimizu/btcd/blob/master/txscript/opcode.go#L2213 にlogを仕込んでいる
+
+OP CHECKMULTISIGを検証するため、かなり雑だが下記のようににlogを仕込んでいる
+diff: https://github.com/YusukeShimizu/btcd/pull/1
 
 ### 参考
 [OP CHECKMULTISIG](https://en.bitcoin.it/wiki/OP_CHECKMULTISIG)
