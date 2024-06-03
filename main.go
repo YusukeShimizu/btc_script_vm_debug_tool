@@ -31,6 +31,7 @@ func main() {
 	txscript.UseLogger(logger)
 
 	fetcher := NewFetcher()
+	defer fetcher.Close()
 	msgTx, err := fetcher.getTransaction(txid)
 	if err != nil {
 		log.Fatalf("Failed to fetch data: %v", err)
