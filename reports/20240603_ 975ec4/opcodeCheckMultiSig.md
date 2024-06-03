@@ -1,4 +1,6 @@
-検証のため、下記のようにhttps://github.com/YusukeShimizu/btcd/blob/master/txscript/opcode.go#L2213 にlogを仕込んでいる
+検証のため、かなり雑だが下記のようにhttps://github.com/YusukeShimizu/btcd/blob/master/txscript/opcode.go#L2213 にlogを仕込んでいる
+
+diff: https://github.com/YusukeShimizu/btcd/pull/1
 
 ```go
 // opcodeCheckMultiSig treats the top item on the stack as an integer number of
