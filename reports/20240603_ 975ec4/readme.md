@@ -5,8 +5,10 @@ tx id: [975ec405ac9dc9fa5ab8009d94d6a1fe31dff8a8127ea90d023104e52754e4d7](https:
 
 ## script
 
-対象のtxのinputは、2 of 3のmulti sig  
-OP CHECKMULTISIGを検証するため、[opcodeCheckMultiSig](./opcodeCheckMultiSig.md) を利用
+対象のtxのinputは、全て2 of 3のmulti sig  
+各入力がP2SH形式をとっており、そのスクリプトが `220020...` のように始まるため、P2SH-P2WPKHである  
+
+OP CHECKMULTISIGを検証するため、[opcodeCheckMultiSig](./opcodeCheckMultiSig.md) に記載のようにcodeにlogを仕込んでいる
 
 ### 参考
 [OP CHECKMULTISIG](https://en.bitcoin.it/wiki/OP_CHECKMULTISIG)
@@ -30,11 +32,9 @@ graph LR
     O --> P[検証結果]
 ```
 
-各入力がP2SH形式をとっており、そのスクリプトが `220020...` のように始まるため、P2SH-P2WPKHである
-
 
 ## それぞれの署名組み合わせ
-※: chat gpt出力のため間違いの可能性あり。正確な情報は[log trace](./trace)を参照
+※ chat gpt出力のため間違いの可能性あり。正確な情報は[log trace](./trace)を参照
 
 | tx in | signature                                                                                                                                      | pubkey                                                             | 検証ステータス                |
 | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------- |
