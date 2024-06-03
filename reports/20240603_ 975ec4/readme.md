@@ -67,8 +67,8 @@ graph LR
 | 8     | 3044022017dee30b98fd415c73c388fec22f7e00f96c3b0fd084ba6a65746816ddf29048022004eb04198f426acf6668aa01351a28fc70cd2060f4bc1cbec7da08d5719defcf   | 022a3ec327cd0b967b53e25439d6ab05a57e55ba82c3cdf03c94b83106711d43ff | Signature verified            |
 
 ## decoded
-https://live.blockcypher.com/btc/decodetx/ でdecodeしたもの
-### 流出tx
+https://live.blockcypher.com/btc/decodetx/ でdecodeしたもの  
+
 `curl -sSL "https://mempool.space/api/tx/975ec405ac9dc9fa5ab8009d94d6a1fe31dff8a8127ea90d023104e52754e4d7/hex"`で取得
 
 ```sh
