@@ -13,26 +13,6 @@ OP CHECKMULTISIGを検証するため、[opcodeCheckMultiSig](./opcodeCheckMulti
 ### 参考
 [OP CHECKMULTISIG](https://en.bitcoin.it/wiki/OP_CHECKMULTISIG)
 
-```mermaid
-graph LR
-    A[スタート] --> B[OP_DATA_34<br>スタックにデータを追加]
-    B --> C[OP_HASH160<br>スタック上のデータをハッシュ化]
-    C --> D[OP_DATA_20<br>20バイトのデータを追加]
-    D --> E[OP_EQUAL<br>スタック上の値を比較<br>結果が真の場合は01を追加]
-    E --> F[OP_0<br>スタックに0を追加]
-    F --> G[OP_DATA_32<br>32バイトのデータを追加]
-    G --> H[署名1<br>0x3045022100...]
-    H --> I[署名2<br>0x3044022041...]
-    I --> J[OP_2<br>スタックに2を追加]
-    J --> K[公開鍵1<br>0x022a3ec3...]
-    K --> L[公開鍵2<br>0x03e8b765...]
-    L --> M[公開鍵3<br>0x038228f8...]
-    M --> N[OP_3<br>スタックに3を追加]
-    N --> O[OP_CHECKMULTISIG<br>3つの公開鍵と2つの署名の検証]
-    O --> P[検証結果]
-```
-
-
 ## それぞれの署名組み合わせ
 ※ chat gpt出力のため間違いの可能性あり。正確な情報は[log trace](./trace)を参照
 
