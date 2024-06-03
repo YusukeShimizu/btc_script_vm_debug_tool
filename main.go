@@ -9,13 +9,6 @@ import (
 	"github.com/btcsuite/btclog"
 )
 
-func init() {
-	// Set up a logger for the script package to use.
-	logger := btclog.NewBackend(os.Stdout).Logger("SCRIPT")
-	logger.SetLevel(btclog.LevelTrace)
-	txscript.UseLogger(logger)
-}
-
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("txid is required as a command line argument.")
@@ -27,6 +20,15 @@ func main() {
 		fmt.Println("txid is required as a command line argument.")
 		os.Exit(1)
 	}
+	l := btclog.LevelInfo
+	if len(os.Args) > 2 {
+		loglevelstr := os.Args[2]
+		l, _ = btclog.LevelFromString(loglevelstr)
+	}
+	// Set up a logger for the script package to use.
+	logger := btclog.NewBackend(os.Stdout).Logger("SCRIPT")
+	logger.SetLevel(l)
+	txscript.UseLogger(logger)
 
 	fetcher := NewFetcher()
 	msgTx, err := fetcher.getTransaction(txid)

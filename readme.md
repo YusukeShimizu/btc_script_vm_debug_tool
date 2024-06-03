@@ -18,7 +18,7 @@ This project is written in Go, so you need to have Go installed. If you haven't 
     ```
 3. Run the project. Specify the txid as a command line argument:
     ```sh
-    go run ./... <txid>
+    go run ./... <txid> <loglevel:optional>
     ```
 
 ## Example
