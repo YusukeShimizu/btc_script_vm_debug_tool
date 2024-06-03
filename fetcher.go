@@ -60,8 +60,8 @@ func (f *fetcher) getTransaction(txid string) (*wire.MsgTx, error) {
 	if err != nil {
 		log.Printf("failed to fetch transaction from db %s: %v\n", txid, err)
 	}
-	if err == notFoundError || err == bucketNotFoundError {
-		fmt.Printf("fetching transaction %s\n", txid)
+	if txHex == "" {
+		fmt.Printf("fetching transaction from api: %s\n", txid)
 		url := fmt.Sprintf("https://mempool.space/api/tx/%s/hex", txid)
 		resp, err := http.Get(url)
 		if err != nil {
